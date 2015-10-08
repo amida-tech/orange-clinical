@@ -2,4 +2,10 @@
   <h1 class="page-header">
     Patients
   </h1>
+
+  <div ng-repeat="patient in patients">
+    <a href ui-sref="patients.detail({id: patient.id})" >{{patient.id}}</a>
+    {{patient.first_name}} {{patient.last_name}}
+    <pre>{{patient}}</pre>
+  </div>
 </div>

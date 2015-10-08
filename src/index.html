@@ -37,10 +37,21 @@
                 Home
               </a>
             </li>
-            <li ui-sref-active="active">
+            <li ui-sref-active="active" ng-show="authenticated">
               <a href ui-sref="patients">
                 <i class="fa fa-info-circle"></i>
-                What is it?
+                Patients
+              </a>
+            </li>
+
+            <li ng-show="authenticated">
+              <a href ng-click="logout()">
+                Logout
+              </a>
+            </li>
+            <li ng-hide="authenticated">
+              <a href ui-sref="home">
+                Login
               </a>
             </li>
           </ul>

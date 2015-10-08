@@ -39,17 +39,20 @@ angular.module( 'orangeClinical.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope, $location, Auth ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $location, $state, Auth ) {
   $scope.credentials = {
     email: "",
     password: ""
   };
 
+  // log in
   $scope.login = function() {
     Auth.login($scope.credentials, function () {
-      window.location = "/patients";
-    }, function () {
-      alert("error authenticating");
+      // $scope.error = null;
+      $state.go('patients');
+    }, function (res) {
+      // show error message
+      $scope.error = "Invalid username/password combination";
     });
   };
 })

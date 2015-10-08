@@ -3,34 +3,53 @@ angular.module( 'orangeClinical.auth', [
   'ngStorage'
 ])
 
-.factory( 'Auth', function Auth( $http, api, Request ) {
+.factory( 'Auth', function Auth( $rootScope, $http, api, Request ) {
+  var auth = {};
+
   // login
-  var login = function login(data, success, error) {
+  auth.login = function login(data, success, error) {
     // store token in local storage on success
     var handler = function authHandler(res) {
       Request.setToken(res.access_token);
-      return success(res);
+      auth.authenticated = true;
+      $rootScope.$broadcast('authentication:updated');
+
+      console.log("logging in");
+      console.log("setting authenticated to true");
+      console.log();
+
+      if (typeof success === "function") {
+        success();
+      }
     };
 
     $http.post(api.BASE + '/auth/token', data).success(handler).error(error);
   };
 
   // log out
-  var logout = function logout(data, success, error) {
-    Request.setToken();
+  auth.logout = function logout(success, error) {
+    Request.setToken(null);
+    auth.authenticated = false;
+    $rootScope.$broadcast('authentication:updated');
+
+    console.log("logging out");
+    console.log("setting authenticated to false");
+    console.log();
+
+    if (typeof success === "function") {
+      success();
+    }
   };
 
-  // check if user is logged in
-  var authenticated = function authenticated() {
-    // logged in iff token is present
-    return !!Request.getToken();
+  // check if authenticated (via localstorage) initially
+  auth.checkAuthenticated = function checkAuthenticated() {
+    auth.authenticated = !!Request.getToken();
+    $rootScope.$broadcast('authentication:updated');
+
+    console.log(auth.authenticated);
   };
 
-  return {
-    login: login,
-    logout: logout,
-    authenticated: authenticated
-  };
+  return auth;
 })
 
 .factory( 'Request', function Request( api, $localStorage ) {
