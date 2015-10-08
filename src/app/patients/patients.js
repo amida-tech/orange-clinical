@@ -44,10 +44,20 @@ angular.module( 'orangeClinical.patients', [
   // get all patients
   $scope.patients = [];
   $scope.patientsCount = 0;
-  Patients.query({}, function (res) {
-    $scope.patients = res.patients;
-    $scope.patientsCount = res.count;
+  $scope.$watch("currentPage", function (newPage) {
+    Patients.query({
+      limit: $scope.patientsPerPage,
+      // 0-indexing
+      offset: (newPage - 1) * $scope.patientsPerPage
+    }, function (res) {
+      $scope.patients = res.patients;
+      $scope.patientsCount = res.count;
+    });
   });
+
+  // pagination
+  $scope.currentPage = 1;
+  $scope.patientsPerPage = 5;
 })
 
 // single patient detail view controller

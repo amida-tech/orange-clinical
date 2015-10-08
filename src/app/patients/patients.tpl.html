@@ -8,4 +8,12 @@
     {{patient.first_name}} {{patient.last_name}}
     <pre>{{patient}}</pre>
   </div>
+
+  <pagination
+    total-items="patientsCount"
+    max-size="5"
+    page="currentPage"
+    items-per-page="patientsPerPage"
+    class="pagination-sm"
+  ></pagination>
 </div>
