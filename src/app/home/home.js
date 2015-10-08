@@ -13,7 +13,9 @@
  * specified, as shown below.
  */
 angular.module( 'orangeClinical.home', [
-  'ui.router'
+  'ui.router',
+  'ngStorage',
+  'orangeClinical.auth'
 ])
 
 /**
@@ -37,8 +39,19 @@ angular.module( 'orangeClinical.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $location, Auth ) {
+  $scope.credentials = {
+    email: "",
+    password: ""
+  };
+
+  $scope.login = function() {
+    Auth.login($scope.credentials, function () {
+      window.location = "/patients";
+    }, function () {
+      alert("error authenticating");
+    });
+  };
 })
 
 ;
-

@@ -13,11 +13,6 @@
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
-
-    <!-- it's stupid to have to load it here, but this is for the +1 button -->
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-      { "parsetags": "explicit" }
-    </script>
   </head>
   <body>
     <div class="container">
@@ -43,7 +38,7 @@
               </a>
             </li>
             <li ui-sref-active="active">
-              <a href ui-sref="about">
+              <a href ui-sref="patients">
                 <i class="fa fa-info-circle"></i>
                 What is it?
               </a>

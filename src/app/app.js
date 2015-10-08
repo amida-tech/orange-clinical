@@ -2,9 +2,16 @@ angular.module( 'orangeClinical', [
   'templates-app',
   'templates-common',
   'orangeClinical.home',
-  'orangeClinical.about',
+  'orangeClinical.patients',
+  'orangeClinical.auth',
   'ui.router'
 ])
+
+// API config
+.constant('api', {
+  BASE: 'http://localhost:5000/v1',
+  SECRET: 'testsecret'
+})
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/home' );
