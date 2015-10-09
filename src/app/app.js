@@ -25,7 +25,7 @@ angular.module( 'orangeClinical', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $rootScope, $location, $state, Auth ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $rootScope, $location, $state, Token, Auth ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | orangeClinical' ;
@@ -40,10 +40,10 @@ angular.module( 'orangeClinical', [
   });
 
   // check if authenticated (via localstorage) initially
-  Auth.checkAuthenticated();
-  $scope.authenticated = Auth.authenticated;
+  Token.checkAuthenticated();
+  $scope.authenticated = Token.authenticated;
   $scope.$on('authentication:updated', function () {
-    $scope.authenticated = Auth.authenticated;
+    $scope.authenticated = Token.authenticated;
   });
 
   // log out
