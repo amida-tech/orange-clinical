@@ -83,7 +83,10 @@ angular.module( 'orangeClinical.adherences', [
   var get = function get(patientId, startDate, endDate) {
     return $http({
       method: 'GET',
-      url: api.BASE + '/patients/' + patientId + '/schedule',
+      // url: api.BASE + '/patients/' + patientId + '/schedule',
+      // use data dump endpoint as that generates and formats schedule event
+      // items as we need them
+      url: api.BASE + '/patients/' + patientId + '.json',
       params: {
         start_date: startDate,
         end_date: endDate
@@ -104,7 +107,7 @@ angular.module( 'orangeClinical.adherences', [
   AdherenceQuery.generate($stateParams.id).then(function (query) {
     // get listing of schedule 'adherence' events
     Schedule.get($stateParams.id, query.startDate, query.endDate).then(function (schedule) {
-      $scope.events = schedule.schedule;
+      $scope.schedule = schedule.schedule;
     });
   });
 })
