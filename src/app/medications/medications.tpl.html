@@ -33,13 +33,15 @@
         </div>
       </td>
     </tr>
-  </div>
+  </table>
 
-  <!--<pagination
-    total-items="medicationsCount"
-    max-size="5"
-    page="currentMedPage"
-    items-per-page="medicationsPerPage"
-    class="pagination-sm"
-    ></pagination>-->
+  <div class="text-center">
+    <pagination
+      ng-model="currentPage"
+      total-items="medicationsCount"
+      max-size="5"
+      items-per-page="medicationsPerPage"
+      class="pagination-sm"
+    ></pagination>
+  </div>
 </div>

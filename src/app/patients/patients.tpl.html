@@ -11,11 +11,13 @@
     <pre>{{patient}}</pre>
   </div>
 
-  <pagination
-    total-items="patientsCount"
-    max-size="5"
-    page="currentPage"
-    items-per-page="patientsPerPage"
-    class="pagination-sm"
-  ></pagination>
+  <div class="text-center">
+    <pagination
+      total-items="patientsCount"
+      ng-model="currentPage"
+      max-size="5"
+      items-per-page="patientsPerPage"
+      class="pagination-sm"
+    ></pagination>
+  </div>
 </div>
