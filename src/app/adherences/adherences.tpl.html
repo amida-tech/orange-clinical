@@ -1,18 +1,17 @@
 <h3>Adherences</h3>
 
-<div ng-repeat="day in schedule">
-  <h3>{{ day.title }}</h3>
-  <h5>
+<div ng-repeat="day in schedule" ng-if="day.events.length > 0">
+  <h5 class="adherence-title">{{ day.title }}</h5>
+  <i>
     {{ day.statistics.doses }} Doses,
-    {{ day.statistics.events }} Events (
-        {{ day.statistics.taken }} Taken,
+    {{ day.statistics.events }} Events
+        ({{ day.statistics.taken }} Taken,
         {{ day.statistics.skipped }} Skipped,
-        {{ day.statistics.notRecorded }} Not Recorded
-    )
-  </h5>
+        {{ day.statistics.notRecorded }} Not Recorded)
+  </i>
   <ul>
     <li ng-repeat="event in day.events">
-      {{ event.title }} - {{ event.medication_label }}
+      <b>{{ event.title }}</b>: {{ event.medication_label }}
       <span ng-class="event.outcome == 'taken' ? 'label label-success' : (event.outcome == 'skipped' ? 'label label-danger' : 'label label-default') ">
         {{ event.outcome }}
       </span>

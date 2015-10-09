@@ -53,5 +53,16 @@ angular.module( 'orangeClinical', [
   };
 })
 
+.filter('capitalize', function() {
+  return function capitalize(input, scope) {
+    if (typeof input === "undefined" || input === null) {
+      return input;
+    }
+
+    input = input.toLowerCase();
+    return input.substring(0, 1).toUpperCase() + input.substring(1);
+  };
+})
+
 ;
 

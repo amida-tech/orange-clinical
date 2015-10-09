@@ -6,7 +6,8 @@ angular.module( 'orangeClinical.patients', [
   'orangeClinical.journal',
   'orangeClinical.adherences',
   'ui.router.tabs',
-  'ngResource'
+  'ngResource',
+  'angularMoment'
 ])
 
 .config(function config( $stateProvider ) {

@@ -39,18 +39,22 @@
             </li>
             <li ui-sref-active="active" ng-show="authenticated">
               <a href ui-sref="patients">
-                <i class="fa fa-info-circle"></i>
+                <i class="fa fa-female"></i>
                 Patients
               </a>
             </li>
+          </ul>
 
+          <ul class="nav navbar-nav navbar-right">
             <li ng-show="authenticated">
               <a href ng-click="logout()">
+                <i class="fa fa-sign-out"></i>
                 Logout
               </a>
             </li>
             <li ng-hide="authenticated">
               <a href ui-sref="home">
+                <i class="fa fa-sign-in"></i>
                 Login
               </a>
             </li>

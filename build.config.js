@@ -70,7 +70,8 @@ module.exports = {
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-ui-router-tabs/src/ui-router-tabs.js',
       'vendor/moment/moment.js',
-      'vendor/moment-timezone/builds/moment-timezone-with-data.js'
+      'vendor/moment-timezone/builds/moment-timezone-with-data.js',
+      'vendor/angular-moment/angular-moment.js'
     ],
     css: [
     ],

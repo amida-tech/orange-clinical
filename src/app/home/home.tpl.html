@@ -1,5 +1,8 @@
 <div class="jumbotron">
-  <h1>Orange Clinical</h1>
+  <h1>OrangeRX</h1>
+  <p>
+    Clinical web interface to access medication adherence data for Amida's OrangeRX.
+  </p>
 </div>
 
 <div class="alert alert-danger" ng-hide="error == null">
@@ -22,6 +25,6 @@
   </form>
 </div>
 
-<div class="row" ng-show="authenticated">
-  Welcome back authenticated user
+<div ng-show="authenticated">
+  Welcome! Go to your <a href ui-sref="patients">patients</a> to view adherence data.
 </div>

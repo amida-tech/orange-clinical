@@ -1,26 +1,23 @@
-<div class="row">
-  <h3>
-    Patient Journal
-  </h1>
+<h3>
+  Patient Journal
+</h1>
 
-  <div ng-repeat="entry in journal">
-    <h5>
-      {{ entry.date }}
-      ({{ entry.medication_ids }})
-      <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">( {{ entry.mood }} )</span>
-    </h5>
-    <p>
-      {{ entry.text }}
-    </p>
-  </div>
+<div ng-repeat="entry in journal">
+  <h5 class="journal-title">
+    {{ entry.date | amParse | amLocal | amCalendar }}
+    <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">( {{ entry.mood }} )</span>
+  </h5>
+  <p>
+    {{ entry.text }}
+  </p>
+</div>
 
-  <div class="text-center">
-    <pagination
-      ng-model="currentPage"
-      total-items="journalCount"
-      max-size="5"
-      items-per-page="entriesPerPage"
-      class="pagination-sm"
-    ></pagination>
-  </div>
+<div class="text-center">
+  <pagination
+    ng-model="currentPage"
+    total-items="journalCount"
+    max-size="5"
+    items-per-page="entriesPerPage"
+    class="pagination-sm"
+  ></pagination>
 </div>
