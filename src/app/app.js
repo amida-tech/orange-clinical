@@ -6,6 +6,7 @@ angular.module( 'orangeClinical', [
   'orangeClinical.auth',
   'orangeClinical.medications',
   'orangeClinical.journal',
+  'orangeClinical.adherences',
   'ui.router'
 ])
 

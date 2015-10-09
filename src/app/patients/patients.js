@@ -4,6 +4,7 @@ angular.module( 'orangeClinical.patients', [
   'orangeClinical.auth',
   'orangeClinical.medications',
   'orangeClinical.journal',
+  'orangeClinical.adherences',
   'ui.router.tabs',
   'ngResource'
 ])

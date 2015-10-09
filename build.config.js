@@ -68,7 +68,9 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/ngstorage/ngStorage.js',
       'vendor/angular-resource/angular-resource.js',
-      'vendor/angular-ui-router-tabs/src/ui-router-tabs.js'
+      'vendor/angular-ui-router-tabs/src/ui-router-tabs.js',
+      'vendor/moment/moment.js',
+      'vendor/moment-timezone/builds/moment-timezone-with-data.js'
     ],
     css: [
     ],
