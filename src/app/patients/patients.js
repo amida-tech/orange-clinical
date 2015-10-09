@@ -3,6 +3,7 @@ angular.module( 'orangeClinical.patients', [
   'ui.bootstrap',
   'orangeClinical.auth',
   'orangeClinical.medications',
+  'orangeClinical.journal',
   'ui.router.tabs',
   'ngResource'
 ])

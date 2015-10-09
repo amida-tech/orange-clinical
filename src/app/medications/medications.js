@@ -24,7 +24,6 @@ angular.module( 'orangeClinical.medications', [
     id: $stateParams.id
   };
   $scope.getMedications = function () {
-    console.log($scope.query);
     Medication.query($scope.query, function (res) {
       console.log(res);
       $scope.medications = res.medications;
