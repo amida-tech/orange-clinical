@@ -14,10 +14,6 @@ angular.module( 'orangeClinical.auth', [
       auth.authenticated = true;
       $rootScope.$broadcast('authentication:updated');
 
-      console.log("logging in");
-      console.log("setting authenticated to true");
-      console.log();
-
       if (typeof success === "function") {
         success();
       }
@@ -32,10 +28,6 @@ angular.module( 'orangeClinical.auth', [
     auth.authenticated = false;
     $rootScope.$broadcast('authentication:updated');
 
-    console.log("logging out");
-    console.log("setting authenticated to false");
-    console.log();
-
     if (typeof success === "function") {
       success();
     }
@@ -45,8 +37,6 @@ angular.module( 'orangeClinical.auth', [
   auth.checkAuthenticated = function checkAuthenticated() {
     auth.authenticated = !!Request.getToken();
     $rootScope.$broadcast('authentication:updated');
-
-    console.log(auth.authenticated);
   };
 
   return auth;

@@ -6,7 +6,7 @@
   <input ng-model="lastName" ng-change="search()" class="form-control" placeholder="Last name">
 
   <div ng-repeat="patient in patients">
-    <a href ui-sref="patients.detail({id: patient.id})" >{{patient.id}}</a>
+    <a href ui-sref="patients.detail.medications({id: patient.id})" >{{patient.id}}</a>
     {{patient.first_name}} {{patient.last_name}}
     <pre>{{patient}}</pre>
   </div>

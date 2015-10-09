@@ -1,0 +1,45 @@
+<div class="row">
+  <h3>
+    Medications
+  </h1>
+
+  <table class="table table-striped">
+    <tr ng-repeat-start="medication in medications" data-toggle="collapse" data-target="{{ medication.id }}">
+      <td>
+        <a href ng-click="medication.expanded = !medication.expanded">{{ medication.name }}</a>
+        <span ng-class="medication.status == 'active' ? 'label label-success status' : 'label label-default status'">
+          {{ medication.status }}
+        </span>
+      </td>
+    </tr>
+    <tr ng-repeat-end ng-show="medication.expanded">
+      <td>
+        <!-- only showing fields from mobile app -->
+        <div>
+          <label>Name</label>
+          {{ medication.name }}
+        </div>
+        <div>
+          <label>Brand</label>
+          {{ medication.brand }}
+        </div>
+        <div>
+          <label>Schedule</label>
+          {{ medication.schedule_summary }}
+        </div>
+        <div ng-hide="medication.notes == null || medication.notes == ''">
+          <div><label>Notes:</label></div>
+          {{ medication.notes }}
+        </div>
+      </td>
+    </tr>
+  </div>
+
+  <!--<pagination
+    total-items="medicationsCount"
+    max-size="5"
+    page="currentMedPage"
+    items-per-page="medicationsPerPage"
+    class="pagination-sm"
+    ></pagination>-->
+</div>

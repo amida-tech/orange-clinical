@@ -2,14 +2,15 @@
   "name": "orange-clinical",
   "version": "0.1.0",
   "devDependencies": {
-    "angular": "~1.2",
-    "angular-mocks": "~1.2",
-    "bootstrap": "~3.1",
-    "angular-bootstrap": "~0.10.0",
+    "angular": "~1.4",
+    "angular-mocks": "~1.4",
+    "bootstrap": "~3.3",
+    "angular-bootstrap": "~0.13.4",
     "angular-ui-router": "~0.2"
   },
   "dependencies": {
     "ngstorage": "~0.3.9",
-    "angular-resource": "~1.4.7"
+    "angular-resource": "~1.4.7",
+    "angular-ui-router-tabs": "~1.6.0"
   }
 }

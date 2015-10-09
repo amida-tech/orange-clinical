@@ -4,12 +4,15 @@ angular.module( 'orangeClinical', [
   'orangeClinical.home',
   'orangeClinical.patients',
   'orangeClinical.auth',
+  'orangeClinical.medications',
   'ui.router'
 ])
 
 // API config
 .constant('api', {
   BASE: 'http://localhost:5000/v1',
+  // don't include vn prefix in BASE_AVATAR
+  BASE_AVATAR: 'http://localhost:5000',
   SECRET: 'testsecret'
 })
 

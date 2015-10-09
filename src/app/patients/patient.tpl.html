@@ -1,6 +1,18 @@
 <div class="row">
-  <b>Patient</b>
-  {{patient.first_name}} {{patient.last_name}}
+  <div class="col-md-4">
+    <h2>{{ patient.first_name}} {{ patient.last_name }}</h2>
 
-  <pre>{{patient}}</pre>
+    <img ng-if="avatar" ng-src="{{ avatar }}" alt="{{ patient.first_name }} {{patient.last_name}}" class="img-circle"/>
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-hide="patient.phone == null || patient.phone == ''">{{ patient.phone }}</li>
+      <li class="list-group-item" ng-hide="patient.sex == null || patient.sex == ''">{{ patient.sex }}</li>
+      <li class="list-group-item" ng-hide="patient.birthdate == null || patient.birthdate == ''">{{ patient.birthdate }}</li>
+    </ul>
+  </div>
+
+  <div class="col-md-8">
+    <tabs data="tabData" type="tabs"></tabs>
+    <ui-view></ui-view>
+  </div>
 </div>
