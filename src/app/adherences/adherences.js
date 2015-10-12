@@ -107,7 +107,10 @@ angular.module( 'orangeClinical.adherences', [
   AdherenceQuery.generate($stateParams.id).then(function (query) {
     // get listing of schedule 'adherence' events
     Schedule.get($stateParams.id, query.startDate, query.endDate).then(function (schedule) {
-      $scope.schedule = schedule.schedule;
+      // ignore days with no events
+      $scope.schedule = schedule.schedule.filter(function (day) {
+        return day.events.length > 0;
+      });
     });
   });
 })

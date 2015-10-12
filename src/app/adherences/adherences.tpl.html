@@ -1,6 +1,6 @@
 <h3>Adherences</h3>
 
-<div ng-repeat="day in schedule" ng-if="day.events.length > 0">
+<div ng-repeat="day in schedule">
   <h5 class="adherence-title">{{ day.title }}</h5>
   <i>
     {{ day.statistics.doses }} Doses,
@@ -20,4 +20,8 @@
       </p>
     </li>
   </ul>
+</div>
+
+<div class="text-center" ng-hide="schedule.length > 0">
+  No adherence events recorded.
 </div>

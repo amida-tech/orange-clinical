@@ -12,7 +12,7 @@
   </p>
 </div>
 
-<div class="text-center">
+<div class="text-center" ng-show="journal.length > 0">
   <pagination
     ng-model="currentPage"
     total-items="journalCount"
@@ -20,4 +20,8 @@
     items-per-page="entriesPerPage"
     class="pagination-sm"
   ></pagination>
+</div>
+
+<div class="text-center" ng-hide="journal.length > 0">
+  No journal entries recorded.
 </div>
