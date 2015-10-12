@@ -1,0 +1,38 @@
+/* Override bootstrap vars.
+========================================================================== */
+@import "boostrap/variables";
+@import "fontawesome/variables";
+
+/* VENDOR - Default fall-backs and external files.
+========================================================================== */
+// bower:scss
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
+// endbower
+
+/* Default vars and mixins.
+========================================================================== */
+@import "varibles";
+
+/* Site re-usable modules
+========================================================================== */
+@import "modules/fonts";
+@import "modules/panels";
+@import "modules/buttons";
+@import "modules/breadcrumbs";
+@import "modules/fontcustom";
+@import "modules/input";
+@import "modules/tables";
+
+/* Default classes
+========================================================================== */
+@import "header&footer";
+@import "general";
+
+/* Routes classes.
+========================================================================== */
+@import '../app/patients/patients';
+@import '../app/patients/patient';
+@import '../app/medications/medications';
+@import '../app/journal/journal';
+@import '../app/adherences/adherences';

@@ -1,0 +1,22 @@
+.btn {
+  padding: 10px 20px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 0px;
+  font-weight: normal;
+  font-family: "Montserrat", serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.btn-primary {
+  color: white;
+  background: $color-blue;
+  border-color: $color-blue2;
+}
+.btn-xs {
+    padding: 1px 5px;
+}

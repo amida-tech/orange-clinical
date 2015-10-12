@@ -13,6 +13,8 @@
     "angular-resource": "~1.4.7",
     "angular-ui-router-tabs": "~1.6.0",
     "angular-moment": "^1.0.0-beta.2",
-    "moment-timezone": "~0.4.1"
+    "moment-timezone": "~0.4.1",
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0"
   }
 }

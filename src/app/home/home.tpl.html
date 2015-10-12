@@ -5,26 +5,28 @@
   </p>
 </div>
 
-<div class="alert alert-danger" ng-hide="error == null">
-  {{ error }}
+<div class="panel panel-body" ng-hide="authenticated">
+  <div class="alert alert-danger" ng-hide="error == null">
+    {{ error }}
+  </div>
+
+  <div>
+    <form ng-submit="login()">
+      <div class="form-group">
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" id="email" ng-model="credentials.email" class="form-control" placeholder="Email address" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" ng-model="credentials.password" class="form-control" placeholder="Password" required>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+  </div>
 </div>
 
-<div class="row" ng-hide="authenticated">
-  <form ng-submit="login()">
-    <div class="form-group">
-      <label for="email" class="sr-only">Email address</label>
-      <input type="email" id="email" ng-model="credentials.email" class="form-control" placeholder="Email address" required autofocus>
-    </div>
-
-    <div class="form-group">
-      <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" ng-model="credentials.password" class="form-control" placeholder="Password" required>
-    </div>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-  </form>
-</div>
-
-<div ng-show="authenticated">
+<div class="panel panel-body" ng-show="authenticated">
   Welcome! Go to your <a href ui-sref="patients">patients</a> to view adherence data.
 </div>

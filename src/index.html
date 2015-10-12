@@ -15,8 +15,8 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
   </head>
   <body>
-    <div class="container">
-      <div class="navbar navbar-default">
+    <div class="wrapper" id="index-wrapper">
+      <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
             ng-click="menuCollapsed = ! menuCollapsed">
@@ -61,9 +61,9 @@
           </ul>
         </div>
       </div>
-    </div>
 
-    <div class="container" ui-view="main"></div>
+      <div class="col-sm-12" ui-view="main"></div>
+    </div>
 
   </body>
 </html>
