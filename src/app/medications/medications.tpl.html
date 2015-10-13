@@ -30,6 +30,21 @@
         <div><label>Notes:</label></div>
         {{ medication.notes }}
       </div>
+      <div ng-show="medication.take_with_food == true">
+        <label>Take with food</label>
+      </div>
+      <div ng-show="medication.take_with_food == false">
+        <label>Take with food</label>
+      </div>
+
+      <div ng-show="medication.schedule.regularly == true">
+        <label>Times:</label>
+        <ul class="times">
+          <li ng-repeat="time in medication.schedule.times">
+            <b>{{ time.heading }}</b> - {{ time.description }}
+          </li>
+        </ul>
+      </div>
     </td>
   </tr>
 </table>
