@@ -11,29 +11,52 @@ header{
     @extend .img-circle;
     margin: 10px;
   }
-  .navbar-toggle{
-    border-color: #777777;
-    border-radius: 0px;
-    &:hover{
-      border-color:#dddddd;
-      background:#777777;
+  .navbar-default {
+    .navbar-toggle{
+      border-color: white;
+      border-radius: 0px;
+      &:hover{
+        border-color:#dddddd;
+        background:white;
+      }
+      .icon-bar{
+        background-color: white;
+      }
     }
-    .icon-bar{
-      background-color: white;
-    }
-  }
-  .navbar-nav{
 
-    > li > a {
+    background-color: #faa91d;
+    .navbar-brand {
       color: white;
-      font-weight: normal;
-      font-family: "Montserrat", serif;
-      letter-spacing: 1px;
-      text-transform: uppercase;
       &:hover, &:focus{
-        color: $color-blue;
-        background:none;
+        color: white;
+      }
+    }
+    border-color: #faa91d;
+
+    .navbar-nav{
+      > li > a {
+        color: white;
+        font-weight: normal;
+        font-family: "Montserrat", serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        &:hover, &:focus{
+          color: #5e5e5e;
+          background:none;
+        }
       }
     }
   }
+}
+
+#main {
+  margin-top: 20px;
+}
+
+.page-header {
+  margin: 0 0 20px;
+}
+
+.wr_td_footer {
+  clear: both;
 }

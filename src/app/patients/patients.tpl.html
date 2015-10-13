@@ -19,7 +19,7 @@
     <tbody>
       <tr ng-repeat="patient in patients">
         <td>
-          <a href ui-sref="patients.detail.medications({id: patient.id})">{{ patient.first_name }} {{ patient.last_name }}</a>
+          <a href class="name" ui-sref="patients.detail.medications({id: patient.id})">{{ patient.first_name }} {{ patient.last_name }}</a>
         </td>
         <td>{{ patient.sex | capitalize }}</td>
         <td>{{ patient.birthdate | amParse: 'YYYY-MM-DD' | amDateFormat: 'M/D/YYYY' }}</td>
