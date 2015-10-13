@@ -12,65 +12,75 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
   </head>
   <body>
-    <div class="wrapper" id="index-wrapper">
-      <header>
-        <div class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-              ng-click="menuCollapsed = ! menuCollapsed">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <div class="navbar-brand">
-              Orange
+    <table class="wrapper" id="index-wrapper">
+      <tr>
+        <td>
+          <header>
+            <div class="navbar navbar-default" role="navigation">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                  ng-click="menuCollapsed = ! menuCollapsed">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                  Orange
+                </div>
+              </div>
+              <div class="collapse navbar-collapse" collapse="menuCollapsed">
+                <ul class="nav navbar-nav">
+                  <li ui-sref-active="active">
+                    <a href ui-sref="home">
+                      <i class="fa fa-home"></i>
+                      Home
+                    </a>
+                  </li>
+                  <li ui-sref-active="active" ng-show="authenticated">
+                    <a href ui-sref="patients">
+                      <i class="fa fa-female"></i>
+                      Patients
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                  <li ng-show="authenticated">
+                    <a href ng-click="logout()">
+                      <i class="fa fa-sign-out"></i>
+                      Logout
+                    </a>
+                  </li>
+                  <li ng-hide="authenticated">
+                    <a href ui-sref="home">
+                      <i class="fa fa-sign-in"></i>
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="collapse navbar-collapse" collapse="menuCollapsed">
-            <ul class="nav navbar-nav">
-              <li ui-sref-active="active">
-                <a href ui-sref="home">
-                  <i class="fa fa-home"></i>
-                  Home
-                </a>
-              </li>
-              <li ui-sref-active="active" ng-show="authenticated">
-                <a href ui-sref="patients">
-                  <i class="fa fa-female"></i>
-                  Patients
-                </a>
-              </li>
-            </ul>
+          </header>
+        </td>
+      </tr>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li ng-show="authenticated">
-                <a href ng-click="logout()">
-                  <i class="fa fa-sign-out"></i>
-                  Logout
-                </a>
-              </li>
-              <li ng-hide="authenticated">
-                <a href ui-sref="home">
-                  <i class="fa fa-sign-in"></i>
-                  Login
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
+      <tr>
+        <td class="wr_td_content">
+          <div class="col-sm-12" ui-view="main" id="main"></div>
+        </td>
+      </tr>
 
-      <div class="col-sm-12" ui-view="main" id="main"></div>
-
-      <div class="wr_td_footer">
-        <footer class="text-center col-md-12 footer hidden-print">
-          <div class="row">
-            <h6>Made by Amida Technology Solutions | Licensed under Creative Commons</h6>
-          </div>
-        </footer>
-      </div>
-    </div>
+      <tr>
+        <td class="wr_td_footer">
+          <footer class="text-center col-md-12 footer hidden-print">
+            <div class="row">
+              <h6>Made by Amida Technology Solutions | Licensed under Creative Commons</h6>
+            </div>
+          </footer>
+        </td>
+      </tr>
+    </table>
 
   </body>
 </html>
