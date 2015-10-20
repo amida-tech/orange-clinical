@@ -1,7 +1,7 @@
 {
   "author": "Amida",
   "name": "orange-clinical ",
-  "description": "Clinical Web Interface for OrangeRX API",
+  "description": "Clinical Web Interface for OrangeRx API",
   "version": "0.1.0",
   "repository": {
     "type": "git",

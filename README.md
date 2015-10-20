@@ -1,7 +1,7 @@
 Orange Clinical Interface
 =========
 
-Basic web interface for clinicians to access OrangeRX API.
+Basic web interface for clinicians to access OrangeRx API.
 
 ##Quick up and running quide
 
