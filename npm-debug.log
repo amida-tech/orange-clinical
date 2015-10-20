@@ -1,0 +1,129 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose install where, deps [ '/Users/ekavali/git/amida-tech/orange-clinical',
+4 verbose install   [ 'grunt',
+4 verbose install     'grunt-bump',
+4 verbose install     'grunt-coffeelint',
+4 verbose install     'grunt-contrib-clean',
+4 verbose install     'grunt-contrib-coffee',
+4 verbose install     'grunt-contrib-concat',
+4 verbose install     'grunt-contrib-copy',
+4 verbose install     'grunt-contrib-jshint',
+4 verbose install     'grunt-contrib-less',
+4 verbose install     'grunt-contrib-sass',
+4 verbose install     'grunt-contrib-uglify',
+4 verbose install     'grunt-contrib-watch',
+4 verbose install     'grunt-conventional-changelog',
+4 verbose install     'grunt-html2js',
+4 verbose install     'grunt-karma',
+4 verbose install     'grunt-ng-annotate',
+4 verbose install     'karma',
+4 verbose install     'karma-coffee-preprocessor',
+4 verbose install     'karma-firefox-launcher',
+4 verbose install     'karma-jasmine' ] ]
+5 verbose install where, peers [ '/Users/ekavali/git/amida-tech/orange-clinical', [] ]
+6 info preinstall orange-clinical@0.1.0
+7 verbose already installed skipping grunt-contrib-jshint@^0.4.3 /Users/ekavali/git/amida-tech/orange-clinical
+8 verbose already installed skipping grunt-contrib-less@~0.11.0 /Users/ekavali/git/amida-tech/orange-clinical
+9 verbose already installed skipping grunt-contrib-sass@^0.9.2 /Users/ekavali/git/amida-tech/orange-clinical
+10 verbose already installed skipping grunt-contrib-uglify@^0.2.7 /Users/ekavali/git/amida-tech/orange-clinical
+11 verbose already installed skipping grunt-contrib-watch@^0.4.4 /Users/ekavali/git/amida-tech/orange-clinical
+12 verbose already installed skipping grunt-conventional-changelog@^0.1.2 /Users/ekavali/git/amida-tech/orange-clinical
+13 verbose already installed skipping grunt-html2js@^0.1.9 /Users/ekavali/git/amida-tech/orange-clinical
+14 verbose already installed skipping grunt-karma@^0.8.2 /Users/ekavali/git/amida-tech/orange-clinical
+15 verbose already installed skipping grunt-ng-annotate@^0.8.0 /Users/ekavali/git/amida-tech/orange-clinical
+16 verbose already installed skipping karma@^0.12.9 /Users/ekavali/git/amida-tech/orange-clinical
+17 verbose already installed skipping karma-coffee-preprocessor@^0.2.1 /Users/ekavali/git/amida-tech/orange-clinical
+18 verbose already installed skipping karma-firefox-launcher@^0.1.3 /Users/ekavali/git/amida-tech/orange-clinical
+19 verbose already installed skipping karma-jasmine@^0.1.5 /Users/ekavali/git/amida-tech/orange-clinical
+20 verbose already installed skipping grunt@~0.4.1 /Users/ekavali/git/amida-tech/orange-clinical
+21 verbose already installed skipping grunt-bump@0.0.6 /Users/ekavali/git/amida-tech/orange-clinical
+22 verbose already installed skipping grunt-coffeelint@~0.0.10 /Users/ekavali/git/amida-tech/orange-clinical
+23 verbose already installed skipping grunt-contrib-clean@^0.4.1 /Users/ekavali/git/amida-tech/orange-clinical
+24 verbose already installed skipping grunt-contrib-coffee@^0.7.0 /Users/ekavali/git/amida-tech/orange-clinical
+25 verbose already installed skipping grunt-contrib-concat@^0.3.0 /Users/ekavali/git/amida-tech/orange-clinical
+26 verbose already installed skipping grunt-contrib-copy@^0.4.1 /Users/ekavali/git/amida-tech/orange-clinical
+27 silly install resolved []
+28 info build /Users/ekavali/git/amida-tech/orange-clinical
+29 verbose linkStuff [ false, false, false, '/Users/ekavali/git/amida-tech' ]
+30 info linkStuff orange-clinical@0.1.0
+31 verbose linkBins orange-clinical@0.1.0
+32 verbose linkMans orange-clinical@0.1.0
+33 verbose rebuildBundles orange-clinical@0.1.0
+34 verbose rebuildBundles [ '.bin',
+34 verbose rebuildBundles   'coffeelint',
+34 verbose rebuildBundles   'grunt',
+34 verbose rebuildBundles   'grunt-bump',
+34 verbose rebuildBundles   'grunt-coffeelint',
+34 verbose rebuildBundles   'grunt-contrib-clean',
+34 verbose rebuildBundles   'grunt-contrib-coffee',
+34 verbose rebuildBundles   'grunt-contrib-concat',
+34 verbose rebuildBundles   'grunt-contrib-copy',
+34 verbose rebuildBundles   'grunt-contrib-jshint',
+34 verbose rebuildBundles   'grunt-contrib-less',
+34 verbose rebuildBundles   'grunt-contrib-sass',
+34 verbose rebuildBundles   'grunt-contrib-uglify',
+34 verbose rebuildBundles   'grunt-contrib-watch',
+34 verbose rebuildBundles   'grunt-conventional-changelog',
+34 verbose rebuildBundles   'grunt-html2js',
+34 verbose rebuildBundles   'grunt-karma',
+34 verbose rebuildBundles   'grunt-ng-annotate',
+34 verbose rebuildBundles   'karma',
+34 verbose rebuildBundles   'karma-coffee-preprocessor',
+34 verbose rebuildBundles   'karma-firefox-launcher',
+34 verbose rebuildBundles   'karma-jasmine' ]
+35 verbose rebuild bundle /Users/ekavali/git/amida-tech/orange-clinical/node_modules/coffeelint
+36 info build /Users/ekavali/git/amida-tech/orange-clinical/node_modules/coffeelint
+37 info preinstall coffeelint@1.13.0
+38 verbose linkStuff [ false,
+38 verbose linkStuff   false,
+38 verbose linkStuff   false,
+38 verbose linkStuff   '/Users/ekavali/git/amida-tech/orange-clinical/node_modules' ]
+39 info linkStuff coffeelint@1.13.0
+40 verbose linkBins coffeelint@1.13.0
+41 verbose link bins [ { coffeelint: './bin/coffeelint' },
+41 verbose link bins   '/Users/ekavali/git/amida-tech/orange-clinical/node_modules/.bin',
+41 verbose link bins   false ]
+42 verbose linkMans coffeelint@1.13.0
+43 verbose rebuildBundles coffeelint@1.13.0
+44 verbose rebuildBundles [ '.bin',
+44 verbose rebuildBundles   'coffee-script',
+44 verbose rebuildBundles   'glob',
+44 verbose rebuildBundles   'ignore',
+44 verbose rebuildBundles   'optimist',
+44 verbose rebuildBundles   'resolve',
+44 verbose rebuildBundles   'strip-json-comments' ]
+45 verbose gentlyRm vacuuming /Users/ekavali/git/amida-tech/orange-clinical/node_modules/.bin/coffeelint
+46 silly gentlyRm purging /Users/ekavali/git/amida-tech/orange-clinical/node_modules/.bin/coffeelint
+47 silly gentlyRm quitting because other entries in /Users/ekavali/git/amida-tech/orange-clinical/node_modules/.bin
+48 info install coffeelint@1.13.0
+49 verbose unsafe-perm in lifecycle false
+50 info coffeelint@1.13.0 Failed to exec install script
+51 verbose stack Error: coffeelint@1.13.0 install: `cake install`
+51 verbose stack Exit status 1
+51 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+51 verbose stack     at EventEmitter.emit (events.js:110:17)
+51 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+51 verbose stack     at ChildProcess.emit (events.js:110:17)
+51 verbose stack     at maybeClose (child_process.js:1008:16)
+51 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+52 verbose pkgid coffeelint@1.13.0
+53 verbose cwd /Users/ekavali/git/amida-tech/orange-clinical
+54 error Darwin 15.0.0
+55 error argv "node" "/usr/local/bin/npm" "install"
+56 error node v0.12.0
+57 error npm  v2.5.1
+58 error code ELIFECYCLE
+59 error coffeelint@1.13.0 install: `cake install`
+59 error Exit status 1
+60 error Failed at the coffeelint@1.13.0 install script 'cake install'.
+60 error This is most likely a problem with the coffeelint package,
+60 error not with npm itself.
+60 error Tell the author that this fails on your system:
+60 error     cake install
+60 error You can get their info via:
+60 error     npm owner ls coffeelint
+60 error There is likely additional logging output above.
+61 verbose exit [ 1, true ]
