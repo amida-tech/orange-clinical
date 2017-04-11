@@ -168,7 +168,7 @@ angular.module( 'orangeClinical.patients', [
   };
 
   // pagination
-  $scope.patientsPerPage = 5;
+  $scope.patientsPerPage = 12;
   $scope.currentPage = 1;
   $scope.$watch('currentPage', function (newPage) {
     $scope.query.limit = $scope.patientsPerPage;
