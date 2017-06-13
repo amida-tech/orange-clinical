@@ -5,7 +5,8 @@
 <div ng-repeat="entry in journal">
   <h5 class="journal-title">
     {{ entry.date | amParse | amLocal | amCalendar }}
-    <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">( {{ entry.mood }} )</span>
+    <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">({{ entry.mood }})</span>
+    <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}"> {{ entry.moodEmoji }}</span>
   </h5>
   <p>
     {{ entry.text }}
