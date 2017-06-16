@@ -43,16 +43,6 @@
   </div>
 </div>
 
-<div class="text-center" ng-show="events.length > 0">
-  <pagination
-    ng-model="currentPage"
-    total-items="eventCount"
-    max-size="5"
-    items-per-page="eventsPerPage"
-    class="pagination-sm"
-  ></pagination>
-</div>
-
 <div class="text-center" ng-hide="events.length > 0">
   No events recorded.
 </div>
