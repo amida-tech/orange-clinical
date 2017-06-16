@@ -11,7 +11,9 @@ angular.module( 'orangeClinical.journal', [
   $scope.journalCount = 0;
   $scope.query = {
     // *patient* id
-    id: $stateParams.id
+    id: $stateParams.id,
+    sort_by: 'date',
+    sort_order: 'desc'
   };
   $scope.getJournal = function () {
     JournalEntry.query($scope.query, function (res) {
