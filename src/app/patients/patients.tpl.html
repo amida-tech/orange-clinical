@@ -14,6 +14,8 @@
       <th>Sex</th>
       <th>Birthdate</th>
       <th>Phone</th>
+      <th>Meditations (#)</th>
+      <th>Total Meditation Time (m)</th>
       <th>Creator</th>
     </thead>
     <tbody>
@@ -24,6 +26,8 @@
         <td>{{ patient.sex | capitalize }}</td>
         <td>{{ patient.birthdate | amParse: 'YYYY-MM-DD' | amDateFormat: 'M/D/YYYY' }}</td>
         <td>{{ patient.phone }}</td>
+        <td>{{ patient.meditations.count }}</td>
+        <td>{{ patient.meditations.sum }}</td>
         <td>{{ patient.creator }}</td>
       </tr>
     </tbody>
