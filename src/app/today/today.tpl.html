@@ -38,14 +38,17 @@
     <div ng-switch-when="clinician">{{ entry.text }}</div>
     <div ng-switch-when="journal">
       {{ entry.text }}<!--
-      --><span ng-hide="{{ entry.mood == null || entry.mood == '' }}">, mood: {{ entry.mood }}</span>
+   --><span ng-hide="{{ entry.mood == null || entry.mood == '' }}">, mood: {{ entry.mood }}</span>
       <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}">{{ entry.moodEmoji | emoji }}</span>
     </div>
     <div ng-switch-when="meditation">
       <span ng-hide="{{ entry.meditationLength == null || entry.meditationLength == '' }}">
         {{ entry.meditationLength }} minutes<!--
-      --></span><!--
-      --><span ng-hide="{{ entry.mood == null || entry.mood == '' }}">, mood: {{ entry.mood }}</span>
+   --></span><!--
+   --><span ng-hide="{{ entry.mood == null || entry.mood == '' }}"><!--
+     --><span ng-hide="{{ entry.meditationLength == null || entry.meditationLength == '' }}">. </span><!--
+     -->Mood: {{ entry.mood }}
+      </span>
       <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}">{{ entry.moodEmoji | emoji }}</span>
     </div>
   </div>
