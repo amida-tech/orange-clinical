@@ -303,7 +303,7 @@ angular.module( 'orangeClinical.patients', [
       route:   'patients.detail.events'
     },
     {
-      heading: 'Today',
+      heading: 'Daily',
       route:   'patients.detail.today'
     }
   ];
