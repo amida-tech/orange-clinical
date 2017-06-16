@@ -4,6 +4,8 @@ angular.module( 'orangeClinical.patients', [
   'orangeClinical.auth',
   'orangeClinical.medications',
   'orangeClinical.journal',
+  'orangeClinical.events',
+  'orangeClinical.today',
   'orangeClinical.adherences',
   'ui.router.tabs',
   'ngResource',
@@ -55,6 +57,24 @@ angular.module( 'orangeClinical.patients', [
       '': {
         controller: 'JournalCtrl',
         templateUrl: 'journal/journal.tpl.html'
+      }
+    }
+  })
+  .state( 'patients.detail.events', {
+    url: '/events',
+    views: {
+      '': {
+        controller: 'EventsCtrl',
+        templateUrl: 'events/event.tpl.html'
+      }
+    }
+  })
+  .state( 'patients.detail.today', {
+    url: '/today',
+    views: {
+      '': {
+        controller: 'TodayCtrl',
+        templateUrl: 'today/today.tpl.html'
       }
     }
   })
@@ -154,6 +174,61 @@ angular.module( 'orangeClinical.patients', [
   };
 })
 
+// journal entries data factory from API
+.factory( 'JournalEntry', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/journal', {
+    id: "@id" // take id parameter from data input
+  }, {
+    query: {
+      isArray: false
+    }
+  });
+})
+
+// events data factory from API
+.factory( 'EventsEntry', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/events', {
+    id: "@id" // take id parameter from data input
+  }, {
+    query: {
+      isArray: false
+    }
+  });
+})
+
+// medications schedule data factory from API
+.factory( 'ScheduleEntry', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/schedule', {
+    id: "@id" // take id parameter from data input
+  }, {
+    query: {
+      isArray: false
+    }
+  });
+})
+
+// doses schedule data factory from API
+.factory( 'DoseEntry', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/doses', {
+    id: "@id" // take id parameter from data input
+  }, {
+    query: {
+      isArray: false
+    }
+  });
+})
+
+// medications data factory from API
+.factory( 'Medication', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/medications', {
+    id: "@id" // take id parameter from data input
+  }, {
+    query: {
+      isArray: false
+    }
+  });
+})
+
 // patients list controller
 .controller( 'PatientsCtrl', function PatientsController( $scope, Patient ) {
   // get all patients
@@ -220,8 +295,16 @@ angular.module( 'orangeClinical.patients', [
       route:   'patients.detail.adherences'
     },
     {
-      heading: 'Patient Journal',
+      heading: 'Journal',
       route:   'patients.detail.journal'
+    },
+    {
+      heading: 'Events',
+      route:   'patients.detail.events'
+    },
+    {
+      heading: 'Today',
+      route:   'patients.detail.today'
     }
   ];
 })

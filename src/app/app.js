@@ -7,6 +7,7 @@ angular.module( 'orangeClinical', [
   'orangeClinical.medications',
   'orangeClinical.journal',
   'orangeClinical.adherences',
+  'orangeClinical.events',
   'ui.router'
 ])
 
@@ -61,6 +62,18 @@ angular.module( 'orangeClinical', [
 
     input = input.toLowerCase();
     return input.substring(0, 1).toUpperCase() + input.substring(1);
+  };
+})
+
+.filter('emoji', function() {
+  return function emoji(input, scope) {
+    if (typeof input === 'undefined' || input === null) {
+      return input;
+    }
+  
+    // convert from charcode /uXXXX format to html &$xXXXX format
+    var charCode = parseInt(input.slice(2), 16);
+    return String.fromCodePoint(charCode);
   };
 })
 

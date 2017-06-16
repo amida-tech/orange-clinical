@@ -4,17 +4,6 @@ angular.module( 'orangeClinical.medications', [
   'ngResource'
 ])
 
-// medications data factory from API
-.factory( 'Medication', function( api, $resource, $stateParams ) {
-  return $resource(api.BASE + '/patients/:id/medications', {
-    id: "@id" // take id parameter from data input
-  }, {
-    query: {
-      isArray: false
-    }
-  });
-})
-
 .controller( 'MedicationsCtrl', function MedicationsController( $scope, $stateParams, Medication ) {
   // get all medications
   $scope.medications = [];

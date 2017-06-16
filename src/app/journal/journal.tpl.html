@@ -1,15 +1,21 @@
 <h3>
-  Patient Journal
+  Journal
 </h1>
 
 <div ng-repeat="entry in journal">
   <h5 class="journal-title">
     {{ entry.date | amParse | amLocal | amCalendar }}
-    <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">({{ entry.mood }})</span>
-    <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}"> {{ entry.moodEmoji }}</span>
+    <i ng-show="{{ entry.clinician === true }}" class="fa fa-heartbeat"></i>
   </h5>
+  <div ng-hide="{{ entry.mood == null || entry.mood == '' }}">
+    Mood: {{ entry.mood }}
+    <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}">{{ entry.moodEmoji | emoji }}</span>
+  </div>
+  <div ng-show="{{ $index == 1 }}">
+    Meditation<span>: 90 minutes</span>
+  </div>
   <p>
-    {{ entry.text }}
+    <i>{{ entry.text }}</i>
   </p>
 </div>
 

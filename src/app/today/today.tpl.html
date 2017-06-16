@@ -1,0 +1,58 @@
+<h3>
+  Today
+</h1>
+
+<div ng-repeat="entry in events">
+  <h5 class="entry-title">
+    {{ entry.date | amParse | amLocal | amDateFormat: "hh:mm a" }}:
+    <span ng-switch on="entry.type">
+      <span ng-switch-when="event">Calendar Event</span>
+      <span ng-switch-when="medication">Scheduled Drug Event</span>
+      <span ng-switch-when="dose">Taken Drug Event</span>
+      <span ng-switch-when="clinician">Physician Note</span>
+      <span ng-switch-when="journal">Patient Note</span>
+      <span ng-switch-when="meditation">Meditation Session</span>
+    </span>
+  </h5>
+
+
+  <div ng-switch on="entry.type">
+    <div ng-switch-when="event">
+      {{ entry.name }}<!--
+      --><span ng-hide="{{ entry.eventLength == null || entry.eventLength == '' }}">, {{ entry.eventLength }} minutes</span>
+    </div>
+    <div ng-switch-when="medication">
+      {{ entry.medication.name }}<!--
+        --><span ng-hide="{{ entry.medication.dose == null || entry.medication.dose == '' }}">, {{ entry.medication.dose.quantity }} {{ entry.medication.dose.unit }}</span><!--
+        --><span ng-hide="{{ entry.time == null || entry.time == '' }}">. {{ entry.time.description }}</span>
+    </div>
+    <div ng-switch-when="dose">
+      {{ entry.medication.name }}<!--
+        --><span ng-hide="{{ entry.dose == null || entry.dose == '' }}">, {{ entry.dose.quantity }} {{ entry.dose.unit }}</span>
+    </div>
+    </h5>
+    <div ng-switch-when="clinician">{{ entry.text }}</div>
+    <div ng-switch-when="journal">{{ entry.text }}</div>
+    <div ng-switch-when="meditation">
+      <span ng-hide="{{ entry.meditationLength == null || entry.meditationLength == '' }}">
+        {{ entry.meditationLength }} minutes<!--
+      --></span><!--
+      --><span ng-hide="{{ entry.mood == null || entry.mood == '' }}">, mood: {{ entry.mood }}</span>
+      <span ng-hide="{{ entry.moodEmoji == null || entry.moodEmoji == '' }}">{{ entry.moodEmoji | emoji }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="text-center" ng-show="events.length > 0">
+  <pagination
+    ng-model="currentPage"
+    total-items="eventCount"
+    max-size="5"
+    items-per-page="eventsPerPage"
+    class="pagination-sm"
+  ></pagination>
+</div>
+
+<div class="text-center" ng-hide="events.length > 0">
+  No events recorded.
+</div>
