@@ -24,7 +24,7 @@ header{
       }
     }
 
-    background-color: #01133f;
+    background-color: $primary-color;
     .navbar-brand {
       color: white;
       &:hover, &:focus{

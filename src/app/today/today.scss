@@ -2,15 +2,39 @@
   margin-bottom: 0;
 }
 
-._720kb-datepicker-calendar {
-  width: 100%;
-  margin: 5px 0 0 0;
-}
-
 .datepicker {
   float: right;
   width: 250px;
   input {
     width: 100%;
+  }
+
+  ._720kb-datepicker-calendar {
+    width: 100%;
+    margin: 5px 0 0 0;
+
+    a:hover {
+      color: $primary-color;
+    }
+
+    ._720kb-datepicker-calendar-header {
+      background: $primary-color !important;
+
+      a, a:hover {
+        color: white;
+      }
+    }
+
+    ._720kb-datepicker-calendar-days-header {
+      background: none;
+    }
+
+    ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover {
+      display: none;
+    }
+
+    ._720kb-datepicker-calendar-month span {
+      color: white;
+    }
   }
 }
