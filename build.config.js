@@ -72,9 +72,11 @@ module.exports = {
       'vendor/angular-ui-router-tabs/src/ui-router-tabs.js',
       'vendor/moment/moment.js',
       'vendor/moment-timezone/builds/moment-timezone-with-data.js',
-      'vendor/angular-moment/angular-moment.js'
+      'vendor/angular-moment/angular-moment.js',
+      'vendor/angularjs-datepicker/src/js/angular-datepicker.js'
     ],
     css: [
+      'vendor/angularjs-datepicker/src/css/angular-datepicker.css'
     ],
     assets: [
       'vendor/font-awesome/fonts/fontawesome-webfont.eot',

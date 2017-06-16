@@ -1,15 +1,18 @@
 angular.module( 'orangeClinical.today', [
   'ui.bootstrap',
   'ui.router',
-  'ngResource'
+  'ngResource',
+  '720kb.datepicker'
 ])
 
 .controller( 'TodayCtrl', function EventsController( $scope, $stateParams, EventsEntry, JournalEntry, ScheduleEntry, DoseEntry, Medication, moment ) {
   var MAX_LIMIT = 50; // TODO: paginate, please don't do this
 
+  $scope.today = new Date();
+  $scope.date = null;
+
   $scope.events = [];
   $scope.medications = {};
-  $scope.eventsCount = 0;
 
   $scope.addEvents = function (newEvents) {
     var events = $scope.events.concat(newEvents);
@@ -19,13 +22,16 @@ angular.module( 'orangeClinical.today', [
     $scope.events = events;
   };
 
+  function resourceQuery() {
+    return {
+      id: $stateParams.id,
+      limit: MAX_LIMIT,
+      start_date: $scope.date,
+      end_date: $scope.date
+    };
+  }
+
   // journal
-  $scope.journalQuery = {
-    id: $stateParams.id,
-    limit: MAX_LIMIT,
-    start_date: "2017-06-15",
-    end_date: "2017-06-15"
-  };
   var parseEntry = function (entry) {
     var type;
     // move to backend
@@ -39,17 +45,11 @@ angular.module( 'orangeClinical.today', [
     return Object.assign({}, entry, { type: type });
   };
   $scope.getJournal = function () {
-    JournalEntry.query($scope.journalQuery, function (res) {
+    JournalEntry.query(resourceQuery(), function (res) {
       $scope.addEvents(res.entries.map(parseEntry));
     });
   };
 
-  $scope.scheduleQuery = {
-    id: $stateParams.id,
-    limit: MAX_LIMIT,
-    start_date: "2017-06-15",
-    end_date: "2017-06-15"
-  };
   // only return scheduled events, not dosage events
   var filterSchedule = function (event) {
     return typeof event.scheduled !== 'undefined' && event.scheduled !== null;
@@ -62,42 +62,30 @@ angular.module( 'orangeClinical.today', [
     return Object.assign({}, event, { type: type, medication: medication, time: time });
   };
   $scope.getSchedule = function () {
-    ScheduleEntry.query($scope.scheduleQuery, function (res) {
+    ScheduleEntry.query(resourceQuery(), function (res) {
       $scope.addEvents(res.schedule.filter(filterSchedule).map(parseSchedule));
     });
   };
 
   // doses
-  $scope.dosesQuery = {
-    id: $stateParams.id,
-    limit: MAX_LIMIT,
-    start_date: "2017-06-15",
-    end_date: "2017-06-15"
-  };
   var parseDose = function (event) {
     var type = 'dose';
     var medication = $scope.medications[event.medication_id];
     return Object.assign({}, event, { type: type, medication: medication });
   };
   $scope.getDoses = function () {
-    DoseEntry.query($scope.dosesQuery, function (res) {
+    DoseEntry.query(resourceQuery(), function (res) {
       $scope.addEvents(res.doses.map(parseDose));
     });
   };
 
   // events
-  $scope.eventsQuery = {
-    id: $stateParams.id,
-    limit: MAX_LIMIT,
-    start_date: "2017-06-15",
-    end_date: "2017-06-15"
-  };
   var parseEvent = function (event) {
     var type = 'event';
     return Object.assign({}, event, { type: type });
   };
   $scope.getEvents = function () {
-    EventsEntry.query($scope.eventsQuery, function (res) {
+    EventsEntry.query(resourceQuery(), function (res) {
       $scope.addEvents(res.events.map(parseEvent));
     });
   };
@@ -118,21 +106,30 @@ angular.module( 'orangeClinical.today', [
     });
   };
 
-  $scope.getMedications().$promise.then(function () {
+  $scope.getDayData = function () {
+    console.log('getting');
+    $scope.events = [];
     $scope.getJournal();
     $scope.getSchedule();
     $scope.getDoses();
     $scope.getEvents();
+  };
+
+  var medicationsLoaded = false;
+  var getDataOnMedicationLoad = false;
+  $scope.getMedications().$promise.then(function () {
+    medicationsLoaded = true;
+    if (getDataOnMedicationLoad) { $scope.getDayData(); }
   });
 
-  // TODO: pagination
-  $scope.eventsPerPage = 5;
-  $scope.currentPage = 1;
-  $scope.$watch('currentPage', function (newPage) {
-    // $scope.query.limit = $scope.eventsPerPage;
-    // 0-indexing
-    // $scope.query.offset = (newPage - 1) * $scope.eventsPerPage;
-    // $scope.getEvents();
+  $scope.$watch('date', function (date) {
+    if (date !== null) {
+      if (medicationsLoaded) {
+        $scope.getDayData();
+      } else {
+        getDataOnMedicationLoad = true;
+      }
+    }
   });
 })
 

@@ -1,6 +1,10 @@
 <h3>
   Today
-</h1>
+</h3>
+
+<div class="datepicker" date-format="yyyy-MM-dd" date-max-limit="{{ today.toString() }}" date-set="{{ today.toString() }}">
+  <input ng-model="date" type="text"/>
+</div>
 
 <div ng-repeat="entry in events">
   <h5 class="entry-title">
