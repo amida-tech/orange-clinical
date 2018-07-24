@@ -47,6 +47,7 @@ angular.module( 'orangeClinical.home', [
 
   // log in
   $scope.login = function() {
+    $scope.credentials.username = $scope.credentials.email;
     Auth.login($scope.credentials, function () {
       // $scope.error = null;
       $state.go('patients');

@@ -10,14 +10,14 @@ angular.module( 'orangeClinical.auth', [
   auth.login = function login(data, success, error) {
     // store token in local storage on success
     var handler = function authHandler(res) {
-      Token.set(res.access_token);
+      Token.set(res.token);
 
       if (typeof success === "function") {
         success();
       }
     };
 
-    $http.post(api.BASE + '/auth/token', data).success(handler).error(error);
+    $http.post(api.AUTH_MICROSERVICE_BASE  + '/auth/login', data).success(handler).error(error);
   };
 
   // log out
