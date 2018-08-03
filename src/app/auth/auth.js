@@ -1,12 +1,14 @@
+var jwtCookieRegexp = /jwt=(.*?)(?:\s|;|$)/;
+var cookieMatch = jwtCookieRegexp.exec(document.cookie);
+
 // authentication module
 angular.module( 'orangeClinical.auth', [
   'ngStorage'
 ])
 
-
 .factory( 'Auth', function Auth( $rootScope, $http, $location, api, Token ) {
-  // If the request for this page was made with a jwt=something query praram, set the JWT Token with this value.
-  Token.set($location.search().jwt);
+  // If the request for this page was made with a cookie with a name=value of jwt=something, set the JWT Token to this value.
+  Token.set(cookieMatch && cookieMatch[1]);
 
   var auth = {};
 
