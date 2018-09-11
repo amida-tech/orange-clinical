@@ -18,11 +18,18 @@ RUN npm install -g grunt
 
 RUN grunt build
 
+RUN ls -laF /app/
+RUN ls -laF /app/build/
+
 # Runner image
 FROM nginx:1.15.3
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build/ /var/www/html/
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/nginx.conf /etc/nginx/nginx.conf
+# I need to put this somewhere. /etc/nginx/ will work fine, considering it writes an nginx conf file to that directory.
+COPY --from=builder /app/docker-entrypoint.sh /etc/nginx/docker-entrypoint.sh
 
 EXPOSE 80
+
+ENTRYPOINT ["/etc/nginx/docker-entrypoint.sh"]

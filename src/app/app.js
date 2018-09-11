@@ -1,3 +1,28 @@
+var configCookieRegexp = /orangeClinicalConfig=(.*?)(?:\s|;|$)/;
+
+function setConfigFromCookie () {
+  var match = configCookieRegexp.exec(document.cookie);
+
+  if (match && match[1]) {
+    try {
+      window.orangeClinicalConfig = JSON.parse(match[1]);
+      return true;
+    }
+    catch (err) {
+      console.error('ERROR: setConfigFromCookie() JSON.parse() failed with error:');
+      console.error(err);
+      console.error('Therefore, this webpage will not work. Try reloading the page.');
+      return false;
+    }
+  }
+  else {
+    console.error('ERROR: setConfigFromCookie() regex match failed. Therefore, this webpage will not work. Try reloading the page.');
+    return false;
+  }
+}
+
+setConfigFromCookie();
+
 angular.module( 'orangeClinical', [
   'templates-app',
   'templates-common',
@@ -12,10 +37,14 @@ angular.module( 'orangeClinical', [
 
 // API config
 .constant('api', {
-  BASE: 'http://localhost:5000/v1',
+  BASE: window.orangeClinicalConfig.ORANGE_API_URL,
+
+  AUTH_MICROSERVICE_BASE: window.orangeClinicalConfig.AUTH_MICROSERVICE_URL,
+
   // don't include vn prefix in BASE_AVATAR
-  BASE_AVATAR: 'http://localhost:5000',
-  SECRET: 'testsecret'
+  BASE_AVATAR: window.orangeClinicalConfig.ORANGE_API_AVATAR_BASE_URL,
+
+  SECRET: window.orangeClinicalConfig.JWT_SECRET
 })
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
