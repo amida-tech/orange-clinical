@@ -18,9 +18,6 @@ RUN npm install -g grunt
 
 RUN grunt build
 
-RUN ls -laF /app/
-RUN ls -laF /app/build/
-
 # Runner image
 FROM nginx:1.15.3
 
