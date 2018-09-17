@@ -44,7 +44,7 @@ angular.module( 'orangeClinical', [
   // don't include vn prefix in BASE_AVATAR
   BASE_AVATAR: window.orangeClinicalConfig.ORANGE_API_AVATAR_BASE_URL,
 
-  SECRET: window.orangeClinicalConfig.JWT_SECRET
+  SECRET: window.orangeClinicalConfig.X_CLIENT_SECRET
 })
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
