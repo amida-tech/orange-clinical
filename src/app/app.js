@@ -1,3 +1,7 @@
+function stripTrailingSlash (url) {
+  return url.replace(/\/$/ , '');
+}
+
 var configCookieRegexp = /orangeClinicalConfig=(.*?)(?:\s|;|$)/;
 
 function setConfigFromCookie () {
@@ -37,14 +41,14 @@ angular.module( 'orangeClinical', [
 
 // API config
 .constant('api', {
-  BASE: window.orangeClinicalConfig.ORANGE_API_URL,
+  BASE: stripTrailingSlash(window.orangeClinicalConfig.ORANGE_API_URL),
 
-  AUTH_MICROSERVICE_BASE: window.orangeClinicalConfig.AUTH_MICROSERVICE_URL,
+  AUTH_MICROSERVICE_BASE: stripTrailingSlash(window.orangeClinicalConfig.AUTH_MICROSERVICE_URL),
 
   // don't include vn prefix in BASE_AVATAR
-  BASE_AVATAR: window.orangeClinicalConfig.ORANGE_API_AVATAR_BASE_URL,
+  BASE_AVATAR: stripTrailingSlash(window.orangeClinicalConfig.ORANGE_API_AVATAR_BASE_URL),
 
-  SECRET: window.orangeClinicalConfig.X_CLIENT_SECRET
+  SECRET: stripTrailingSlash(window.orangeClinicalConfig.X_CLIENT_SECRET)
 })
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
