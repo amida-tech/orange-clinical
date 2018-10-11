@@ -1,0 +1,26 @@
+<h3>
+  Moods
+</h3>
+
+<div class="mood__header">
+  <div class="mood__column-date">
+    Date
+  </div>
+  <div class="mood__column-mood">
+    Mood
+  </div>
+  <div class="mood__column-severity">
+    Level (out of 10)
+  </div>
+</div>
+<div ng-repeat="entry in journal" ng-hide="{{ entry.mood == null || entry.mood == '' }}" class="mood__row">
+  <div class="mood__column-date">
+    {{ entry.date.utc | amParse | amLocal | amCalendar }}
+  </div>
+  <div class="mood__column-mood">
+    {{ entry.mood }}
+  </div>
+  <div class="mood__column-severity">
+    {{ entry.moodSeverity }}
+  </div>
+</div>

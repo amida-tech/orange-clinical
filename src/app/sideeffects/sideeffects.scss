@@ -1,0 +1,26 @@
+.side-effect__header {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.side-effect__row {
+  display: flex;
+  margin-top: 1px;
+  border-bottom: 1px solid lightgray;
+}
+
+.side-effect__column-date {
+  flex: 1;
+}
+
+.side-effect__column-effect {
+  flex: 2;
+}
+
+.side-effect__column-severity {
+  flex: 1;
+  text-align: right;
+  padding-right: 4px;
+}

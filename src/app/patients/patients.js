@@ -58,6 +58,24 @@ angular.module( 'orangeClinical.patients', [
       }
     }
   })
+  .state( 'patients.detail.sideeffects', {
+    url: '/sideeffects',
+    views: {
+      '': {
+        controller: 'SideEffectCtl',
+        templateUrl: 'sideeffects/sideeffects.tpl.html'
+      }
+    }
+  })
+  .state( 'patients.detail.moods', {
+    url: '/moods',
+    views: {
+      '': {
+        controller: 'MoodCtl',
+        templateUrl: 'moods/moods.tpl.html'
+      }
+    }
+  })
   ;
 })
 
@@ -222,6 +240,14 @@ angular.module( 'orangeClinical.patients', [
     {
       heading: 'Patient Journal',
       route:   'patients.detail.journal'
+    },
+    {
+      heading: 'Side Effects',
+      route:   'patients.detail.sideeffects'
+    },
+    {
+      heading: 'Moods',
+      route:   'patients.detail.moods'
     }
   ];
 })

@@ -1,27 +1,12 @@
 <h3>
-  Patient Journal
-</h1>
+  Notes
+</h3>
 
-<div ng-repeat="entry in journal">
-  <h5 class="journal-title">
-    {{ entry.date | amParse | amLocal | amCalendar }}
-    <span ng-hide="{{ entry.mood == null || entry.mood == '' }}">( {{ entry.mood }} )</span>
+<div ng-repeat="entry in journal" class="journal-container">
+  <h5 class="journal-title" ng-hide="{{ entry.text == null || entry.text == '' }}">
+    {{ entry.date.utc | amParse | amLocal | amCalendar }}
   </h5>
   <p>
     {{ entry.text }}
   </p>
-</div>
-
-<div class="text-center" ng-show="journal.length > 0">
-  <pagination
-    ng-model="currentPage"
-    total-items="journalCount"
-    max-size="5"
-    items-per-page="entriesPerPage"
-    class="pagination-sm"
-  ></pagination>
-</div>
-
-<div class="text-center" ng-hide="journal.length > 0">
-  No journal entries recorded.
 </div>

@@ -35,6 +35,8 @@ angular.module( 'orangeClinical', [
   'orangeClinical.auth',
   'orangeClinical.medications',
   'orangeClinical.journal',
+  'orangeClinical.sideeffects',
+  'orangeClinical.moods',
   'orangeClinical.adherences',
   'ui.router'
 ])

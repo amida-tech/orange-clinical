@@ -1,0 +1,26 @@
+<h3>
+  Side Effects
+</h3>
+
+<div class="side-effect__header">
+  <div class="side-effect__column-date">
+    Date
+  </div>
+  <div class="side-effect__column-effect">
+    Effect
+  </div>
+  <div class="side-effect__column-severity">
+    Severity (out of 10)
+  </div>
+</div>
+<div ng-repeat="entry in journal" ng-hide="{{ entry.sideEffect == null || entry.sideEffect == '' }}" class="side-effect__row">
+  <div class="side-effect__column-date">
+    {{ entry.date.utc | amParse | amLocal | amCalendar }}
+  </div>
+  <div class="side-effect__column-effect">
+    {{ entry.sideEffect }}
+  </div>
+  <div class="side-effect__column-severity">
+    {{ entry.sideEffectSeverity }}
+  </div>
+</div>

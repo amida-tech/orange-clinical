@@ -1,12 +1,11 @@
-angular.module( 'orangeClinical.journal', [
+angular.module( 'orangeClinical.sideeffects', [
   'ui.bootstrap',
   'ui.router',
   'ngResource'
 ])
 
-// journal entries data factory from API
-.factory( 'JournalEntry', function( api, $resource, $stateParams ) {
-  return $resource(api.BASE + '/patients/:id/journal/notes', {
+.factory( 'SideEffect', function( api, $resource, $stateParams ) {
+  return $resource(api.BASE + '/patients/:id/journal/side-effects', {
     id: "@id" // take id parameter from data input
   }, {
     query: {
@@ -15,7 +14,7 @@ angular.module( 'orangeClinical.journal', [
   });
 })
 
-.controller( 'JournalCtrl', function JournalController( $scope, $stateParams, JournalEntry ) {
+.controller( 'SideEffectCtl', function SideEffectController( $scope, $stateParams, SideEffect ) {
   // get all journal entries
   $scope.journal = [];
   $scope.journalCount = 0;
@@ -24,7 +23,8 @@ angular.module( 'orangeClinical.journal', [
     id: $stateParams.id
   };
   $scope.getJournal = function () {
-    JournalEntry.query($scope.query, function (res) {
+    SideEffect.query($scope.query, function (res) {
+      console.log(JSON.stringify(res, null, 2));
       $scope.journal = res.entries;
       $scope.journalCount = res.count;
     });
