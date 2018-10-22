@@ -13,8 +13,13 @@ RUN apt-get install -y libtool
 RUN apt-get install -y make
 RUN gem install sass
 
+RUN apt-get install -y git
 RUN apt-get install -y npm
-RUN npm install -g grunt
+RUN npm install -g grunt-cli
+RUN npm install -g bower
+RUN npm install
+
+RUN bower install --allow-root
 
 RUN grunt build
 
