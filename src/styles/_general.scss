@@ -18,13 +18,18 @@ body{
   position:relative;
   min-height:100%;
   width:100%;
-  background: url("/assets/blur.png");
-  background-attachment: fixed;
-  background-origin: initial;
-  background-clip: initial;
-  background-size: cover;
-  background-repeat:no-repeat;
-  background-position:100% 0;
+
+  // ARH: If you want `orange-clinical` to have the original super sweet color fade background,
+  // then comment out background-color white and uncomment the lines below.
+  background-color: white;
+  // background: url("/assets/blur.png");
+  // background-attachment: fixed;
+  // background-origin: initial;
+  // background-clip: initial;
+  // background-size: cover;
+  // background-repeat:no-repeat;
+  // background-position:100% 0;
+
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .wrapper .wr_td_content{
