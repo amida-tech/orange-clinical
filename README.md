@@ -7,17 +7,35 @@ Basic web interface for clinicians to access OrangeRx API.
 
 ### Prerequisites
 
-- Node.js (v0.10+) and NPM
+- Node.js (v0.10+ for grunt/etc, and v10.0+ if you want to run the little dev server, (see below)) and NPM
 - Grunt.js, Karma and Bower (`npm install -g grunt-cli karma bower`)
 
+Install dependencies:
 ```
-#install dependencies and build
 npm install
 bower install
-grunt watch
+```
 
-# open in browser
+Build and watch for changes:
+```
+grunt watch
+```
+
+Then either:
+
+1. Open in browser (this is the inferior way of doing it)
+```
 open ./build/index.html
+```
+
+2. OR, better than opening in the browser, run the little dev server:
+
+NOTE: This requires a Node version that has the `--experimental-modules` flag, as the server is build with `.mjs` files. Some or all Node v10 versions support this (not sure which).
+```
+cd dev-server/
+npm install
+cp .env.example.env .env
+npm start
 ```
 
 ## Docker Deployment
