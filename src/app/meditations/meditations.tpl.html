@@ -7,6 +7,6 @@
     {{ entry.date.utc | amParse | amLocal | amCalendar }}
   </h5>
   <p>
-    {{ entry.activity }} for {{ entry.activityMinutes }} minutes. {{ entry.meditationRequestedAssistance ? 'Asked for help' : 'Did not ask for help' }}
+    {{ entry.activity }} for {{ entry.activityMinutes }} minutes. Difficulty: {{ entry.meditationDifficulty === 'HARD' ? 'Hard.' : 'Easy.' }} Asked for Help: {{ entry.meditationRequestedAssistance ? 'Yes.' : 'No.' }}
   </p>
 </div>
