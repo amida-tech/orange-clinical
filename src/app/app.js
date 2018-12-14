@@ -34,6 +34,7 @@ angular.module( 'orangeClinical', [
   'orangeClinical.patients',
   'orangeClinical.auth',
   'orangeClinical.medications',
+  'orangeClinical.meditations',
   'orangeClinical.journal',
   'orangeClinical.sideeffects',
   'orangeClinical.moods',
@@ -100,4 +101,3 @@ angular.module( 'orangeClinical', [
 })
 
 ;
-

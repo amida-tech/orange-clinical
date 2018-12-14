@@ -3,6 +3,7 @@ angular.module( 'orangeClinical.patients', [
   'ui.bootstrap',
   'orangeClinical.auth',
   'orangeClinical.medications',
+  'orangeClinical.meditations',
   'orangeClinical.journal',
   'orangeClinical.adherences',
   'ui.router.tabs',
@@ -73,6 +74,15 @@ angular.module( 'orangeClinical.patients', [
       '': {
         controller: 'MoodCtl',
         templateUrl: 'moods/moods.tpl.html'
+      }
+    }
+  })
+  .state( 'patients.detail.meditations', {
+    url: '/meditations',
+    views: {
+      '': {
+        controller: 'MeditationCtl',
+        templateUrl: 'meditations/meditations.tpl.html'
       }
     }
   })
@@ -248,6 +258,10 @@ angular.module( 'orangeClinical.patients', [
     {
       heading: 'Moods',
       route:   'patients.detail.moods'
+    },
+    {
+      heading: 'Meditations',
+      route:   'patients.detail.meditations'
     }
   ];
 })
