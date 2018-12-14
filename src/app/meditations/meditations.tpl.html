@@ -3,10 +3,16 @@
 </h3>
 
 <div ng-repeat="entry in meditations" class="journal-container">
-  <h5 class="journal-title" ng-hide="{{ entry.activity == null || entry.activity == '' }}">
+  <h5 style="font-weight: bold;" class="journal-title" ng-hide="{{ entry.activity == null || entry.activity == '' }}">
     {{ entry.date.utc | amParse | amLocal | amCalendar }}
   </h5>
   <p>
-    {{ entry.activity }} for {{ entry.activityMinutes }} minutes. Difficulty: {{ entry.meditationDifficulty === 'HARD' ? 'Hard.' : 'Easy.' }} Asked for Help: {{ entry.meditationRequestedAssistance ? 'Yes.' : 'No.' }}
+    {{ entry.activity }} for {{ entry.activityMinutes }} minutes.
+  </p>
+  <p>
+    Difficulty: {{ entry.meditationDifficulty === 'HARD' ? 'Hard.' : 'Easy.' }}
+  </p>
+  <p>
+    Asked for Help: {{ entry.meditationRequestedAssistance ? 'Yes.' : 'No.' }}
   </p>
 </div>
